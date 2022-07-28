@@ -20,7 +20,6 @@ function UpdateCustomer(): JSX.Element {
 
     const [id, setId] = useState<number>(customerId);
     const [customer, setCustomer] = useState<CustomerModel>(store.getState().adminCustomerReducer.customers.filter(t => t.id === id)[0]);
-    const [origin, setOrigin] = useState<CustomerPayloadModel>({ 'firstName': customer.firstName, 'lastName': customer.lastName, 'email': customer.email, 'password': customer.password });
 
     // step 6 - manage the schema
     const schema = yup.object().shape({
@@ -43,7 +42,7 @@ function UpdateCustomer(): JSX.Element {
     // step 7 - preaper the hook
 
     // let defaultValuesObj = { id: 0, title: "", description: "", group: "", when: new Date() };
-    let defaultValuesObj = { ...origin };
+    let defaultValuesObj = { ...customer };
 
     const { register, handleSubmit, control, formState: { errors, isDirty, isValid } }
         = useForm<CustomerPayloadModel>({ defaultValues: defaultValuesObj, mode: "all", resolver: yupResolver(schema) });
@@ -56,9 +55,9 @@ function UpdateCustomer(): JSX.Element {
         web.updateCustomer(id, customer)
             .then(res => {
                 notify.success('Yay new tasks updated');
-                navigate('/customer')
+                navigate('/adminCustomer')
                 // update App state (Globals state)
-                store.dispatch(CustomerUpdatedAction(res.data))
+                store.dispatch(CustomerUpdatedAction(customer))
             })
             .catch(err => { notify.error('Oppsy : ' + err.message) })
     }

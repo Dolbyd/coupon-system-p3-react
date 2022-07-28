@@ -8,7 +8,7 @@ export class AdminCompanyAppState {
 
 // Step 2 - Define ActionType using enum for all required operations
 export enum AdminCompaniesActionType {
-    // TasksDownloaded = "TasksDownloaded",
+
     CompaniesDownloaded = "CompaniesDownloaded",
     CompanyAdded = "CompanyAdded",
     CompanyUpdated = "CompanyUpdated",

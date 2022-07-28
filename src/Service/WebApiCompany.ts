@@ -1,15 +1,13 @@
 import globals from "./Globals";
-import { CompanyPayloadModel , CompanyModel } from "../Models/Company";
+import { CouponPayloadModel , CouponModel } from "../Models/Coupon";
 import axios from "axios";
 
-// import tokenAxios from "./InterceptorAxios";
 
-
-class WebApiAdminCompany {
+class WebApiCompany {
 
 
     // need to change this
-    private adminCompanyApi = globals.urls.adminCompany;
+    private companyApi = globals.urls.company;
     private welcomeApi = globals.urls.welcome;
     
 
@@ -18,32 +16,32 @@ class WebApiAdminCompany {
     //     return await tokenAxios.post<TodoModel>(this.taskApi, task);
     // }
 
-    public async addCompany(company: CompanyPayloadModel): Promise<any> {
-        return await axios.post<CompanyModel>(this.adminCompanyApi, company);
+    public async addCoupon(coupon: CouponPayloadModel): Promise<any> {
+        return await axios.post<CouponModel>(this.companyApi, coupon);
     }
 
     // public async updateTask(id: number, task: TodoPayLoadModel): Promise<any> {
     //     return await tokenAxios.put<any>(this.taskApi + id, task);
     // }
 
-    public async updateCompany(id: number, company: CompanyPayloadModel): Promise<any> {
-        return await axios.put<any>(this.adminCompanyApi + id, company);
+    public async updateCoupon(id: number, coupon: CouponPayloadModel): Promise<any> {
+        return await axios.put<any>(this.companyApi + id, coupon);
     }
 
     // public async deleteTask(id: number): Promise<any> {
     //     return await tokenAxios.delete<any>(this.taskApi + id);
     // }
 
-    public async deleteCompany(id: number): Promise<any> {
-        return await axios.delete<any>(this.adminCompanyApi + id);
+    public async deleteCoupon(id: number): Promise<any> {
+        return await axios.delete<any>(this.companyApi + id);
     }
 
     // public async getAllTasks(): Promise<any> {
     //     return await tokenAxios.get<TodoModel[]>(this.taskApi);
     // }
 
-    public async getAllCompanies(): Promise<any> {
-        return await axios.get<CompanyModel[]>(this.adminCompanyApi);
+    public async getAllCoupons(): Promise<any> {
+        return await axios.get<CouponModel[]>(this.companyApi);
     }
 
     // public async getSingleTask(id: number): Promise<any> {
@@ -63,5 +61,5 @@ class WebApiAdminCompany {
     // }
 }
 
-const web = new WebApiAdminCompany();
+const web = new WebApiCompany();
 export default web;

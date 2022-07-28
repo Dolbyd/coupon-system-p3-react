@@ -19,7 +19,6 @@ function UpdateCompany(): JSX.Element {
 
     const [id, setId] = useState<number>(companyId);
     const [company, setCompany] = useState<CompanyModel>(store.getState().adminCompanyReducer.companies.filter(comp => comp.id === id)[0]);
-    const [origin, setOrigin] = useState<CompanyPayloadModel>({ 'name': company.name, 'email': company.email, 'password': company.password });
 
     // step 6 - manage the schema
     const schema = yup.object().shape({
@@ -38,8 +37,7 @@ function UpdateCompany(): JSX.Element {
 
     // step 7 - preaper the hook
 
-    // let defaultValuesObj = { id: 0, title: "", description: "", group: "", when: new Date() };
-    let defaultValuesObj = { ...origin };
+    let defaultValuesObj = { ...company };
 
     const { register, handleSubmit, control, formState: { errors, isDirty, isValid } }
         = useForm<CompanyPayloadModel>({ defaultValues: defaultValuesObj, mode: "all", resolver: yupResolver(schema) });
@@ -47,14 +45,15 @@ function UpdateCompany(): JSX.Element {
     const { dirtyFields } = useFormState({ control });
 
     // step 8 - send to remote as post request
-    const yalla = async (company: CompanyPayloadModel) => {
+    const yalla = async (company: CompanyModel) => {
 
         web.updateCompany(id, company)
             .then(res => {
-                notify.success('Yay new tasks updated');
-                navigate('/company')
+                notify.success('Yay company updated');
+                
                 // update App state (Globals state)
-                store.dispatch(CompanyUpdatedAction(res.data))
+                store.dispatch(CompanyUpdatedAction(company))
+                navigate('/adminCompany')
             })
             .catch(err => { notify.error('Oppsy : ' + err.message) })
     }

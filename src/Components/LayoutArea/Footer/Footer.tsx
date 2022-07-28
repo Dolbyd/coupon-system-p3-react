@@ -4,12 +4,10 @@ import "./Footer.css";
 
 function Footer(): JSX.Element {
     return (
-        <div className="Footer">
-            <span><SocialMedia /></span>
-            
-            <h2 className="d-flex justify-content-center">All right reserved &copy; to Dolbyd </h2> 
-            <span className="d-flex justify-content-left"><Rectangle/></span>
-            
+        <div className="Footer  p-2 d-flex justify-content-between ">
+            <div ><SocialMedia /></div>
+            <h2  >All right reserved &copy; to Dolbyd </h2>
+            <div> <Rectangle /> </div>
         </div>
     );
 }

@@ -8,9 +8,11 @@ function Menu(): JSX.Element {
             {/* <h1>this is menu</h1> */}
             {/* <MenuLink to="company">Get All Companies</MenuLink> */}
             <div className="d-flex justify-content-center ">
-                <Link to="company" className="btn btn-primary navbar-form ">Companies</Link>
-                <Link to="customer" className="btn btn-primary navbar-form ">Customers</Link>
+                <Link to="adminCompany" className="btn btn-primary navbar-form ">AdminCompanies</Link>
+                <Link to="adminCustomer" className="btn btn-primary navbar-form ">AdminCustomers</Link>
+                <Link to="company" className="btn btn-primary navbar-form ">Company</Link>
             </div>
+            <p></p>
 
         </div>
     );

@@ -5,6 +5,7 @@ class DevelopmentGlobals extends Globals{
     public urls = {
         adminCompany: "http://localhost:8080/api/cs/admin/company/",
         adminCustomer: "http://localhost:8080/api/cs/admin/customer/",
+        company: "http://localhost:8080/api/cs/company/",
         coupons: "http://localhost:8080/api/cs/",
         welcome: "http://localhost:8080/api/cs/auth/"
         
@@ -15,6 +16,7 @@ class ProductionGlobals extends Globals{
     public urls = {
         adminCompany: "www.aws.com/dolbydWebSite/admin/",
         adminCustomer: "www.aws.com/dolbydWebSite/admin/",
+        company: "www.aws.com/dolbydWebSite/company/",
         coupons: "www.aws.com/dolbydWebSite/coupons",
         welcome: "www.aws.com/dolbydWebSite/welcome/",
         

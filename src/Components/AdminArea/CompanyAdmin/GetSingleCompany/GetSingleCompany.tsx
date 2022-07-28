@@ -17,7 +17,7 @@ function GetSingleCompany(props: GetSingleCompanyProps): JSX.Element {
             <td><Link to={`update/${props.company.id}`}>✏️</Link></td>
             <td><Link to={`delete/${props.company.id}`}>🗑️</Link></td>
         </tr>
-
+        
         // </div>
     );
 }

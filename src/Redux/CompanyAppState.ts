@@ -1,73 +1,70 @@
-export class AuthAppState {}
+import { CouponModel, CouponPayloadModel } from "../Models/Coupon";
 
-// // Step 1 - Create AppState and manage the collection once and in a centralize place
-// import {CompanyModel} from "../Models/Welcome";
 
-// import store from "./Store";
+// Step 1 - Create AppState and manage the collection once and in a centralize place
+export class CompanyAppState {
+    public coupons: CouponModel[] = [];
+}
 
-// export class AuthAppState {
-//     public company: CompanyModel = new CompanyModel();
-//     token: any;
-//     public constructor() {
-//         try {
-//             const storedCompany = JSON.parse(localStorage.getItem('company') || "");
-//             if (storedCompany) {
-//                 this.company = storedCompany;
-//             }
-//         }
-//         catch (err) {
-//             this.company = null;
-//         }
-//     }
-// }
+// Step 2 - Define ActionType using enum for all required operations
+export enum CompaniesActionType {
 
-// // Step 2 - Define ActionType using enum for all required operations
-// export enum AuthActionType {
-//     Register = "Register",
-//     Login = "Login",
-//     Logout = "Logout"
-// }
+    CouponsDownloaded = "CouponsDownloaded",
+    CouponAdded = "CouponAdded",
+    CouponUpdated = "CouponUpdated",
+    CouponDeleted = "CouponDeleted",
 
-// // Step 3 - Define Action Interface to describe actionAction & payload if needed
-// export interface AuthAction {
-//     type: AuthActionType;
-//     payload?: any; // ? for logout
-// }
+}
 
-// // Step 4 - Export Action Creators functions that gets payload and return relevant Action
-// export function registerAction(): AuthAction {
-//     return { type: AuthActionType.Register };
-// }
+// Step 3 - Define Action Interface to describe actionAction & payload if needed
+export interface CompaniesAction {
+    type: CompaniesActionType;
+    payload?: any;
+}
 
-// export function loginAction(company: CompanyModel): AuthAction {
-//     return { type: AuthActionType.Login, payload: company };
-// }
+// Step 4 - Export Action Creators functions that gets payload and return relevant Action
 
-// export function logoutAction(): AuthAction {
-//     return { type: AuthActionType.Logout };
-// }
+export function CouponDownloadedAction(coupons: CouponModel[]): CompaniesAction {
+    return { type: CompaniesActionType.CouponsDownloaded, payload: coupons };
+}
 
-// // Step 5 - Reducer function perform the required action
-// export function authCompanyReducer(currentState: AuthAppState = new AuthAppState(),
-//     action: AuthAction): AuthAppState {
-//     // const newState = new CatsAppState();
-//     // newState.cats = currentState.cats;
+export function CouponAddAction(coupons: CouponPayloadModel): CompaniesAction {
+    return { type: CompaniesActionType.CouponAdded, payload: coupons };
+}
 
-//     const newState = { ...currentState } //Spread Operator
-//     switch (action.type) {
-//         case AuthActionType.Register: //Payload is registered user from backend
-//             break;
-//         case AuthActionType.Login://Payload is logged i user from backend
-//             newState.company = action.payload;
-//             localStorage.setItem("company", JSON.stringify(newState.company)); // Saving in the session storage (won't be deleted)
-//             break;
-//         case AuthActionType.Logout: // No payload
-//             newState.company = null;
-//             localStorage.removeItem("customer");
+export function CompanyUpdatedAction(coupons: CouponModel): CompaniesAction {
+    return { type: CompaniesActionType.CouponUpdated, payload: coupons };
+}
 
-//             break;
+export function CompanyDeletedAction(id: number): CompaniesAction {
+    return { type: CompaniesActionType.CouponDeleted, payload: id };
+}
 
-//     }
-//     return newState;
 
-// }
+
+// Step 5 - Reducer function perform the required action
+export function companyReducer(currentState: CompanyAppState = new CompanyAppState(),
+    action: CompaniesAction): CompanyAppState {
+    // const newState = new CatsAppState();
+    // newState.cats = currentState.cats;
+
+    const newState = { ...currentState } //Spread Operator
+    switch (action.type) {
+        case CompaniesActionType.CouponsDownloaded:
+            newState.coupons = action.payload;
+            break;
+        case CompaniesActionType.CouponAdded:
+            newState.coupons.push(action.payload);
+            break;
+        case CompaniesActionType.CouponUpdated:
+            const idx = newState.coupons.findIndex(t => t.id === action.payload.id);
+            newState.coupons[idx] = action.payload;
+            break;
+        case CompaniesActionType.CouponDeleted:
+            newState.coupons = newState.coupons.filter(t => t.id !== action.payload);
+            break
+
+    }
+    return newState;
+
+}

@@ -22,13 +22,13 @@ function DeleteCustomer(): JSX.Element {
         web.deleteCustomer(id)
             .then(res => {
                 notify.success('yayyy deleted successfully');
-                navigate('/customer')
+                navigate('/adminCustomer')
                 /// update App state (Globals state)
                 store.dispatch(CustomerDeletedAction(id))
             })
             .catch(err => {
                 notify.error(err.manage);
-                navigate('/customer');
+                navigate('/adminCustomer');
             })
     }
 

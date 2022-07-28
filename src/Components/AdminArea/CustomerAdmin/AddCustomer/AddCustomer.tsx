@@ -42,13 +42,13 @@ function AddCustomer(): JSX.Element {
             .then(res => {
                 notify.success('Yay new Customer created')
 
-                navigate('/customer')
+                navigate('/adminCustomer')
                 // update App state (Global State)
                 store.dispatch(CustomerAddAction(res.data))
             })
             .catch(err => {
                 notify.error('Oppsy : ' + err.message);
-                navigate('/customer')
+                navigate('/adminCustomer')
             })
     }
 

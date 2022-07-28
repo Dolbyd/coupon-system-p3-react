@@ -15,20 +15,20 @@ function DeleteCompany(): JSX.Element {
     const [id, setId] = useState<number>(companyId);
 
     const no = () => {
-        navigate('/company')
+        navigate('/adminCompany')
     }
 
     const yes = () => {
         web.deleteCompany(id)
             .then(res => {
                 notify.success('yayyy deleted successfully');
-                navigate('/company')
+                navigate('/adminCompany')
                 /// update App state (Globals state)
                 store.dispatch(CompanyDeletedAction(id))
             })
             .catch(err => {
                 notify.error(err.manage);
-                navigate('/company');
+                navigate('/adminCompany');
             })
     }
 

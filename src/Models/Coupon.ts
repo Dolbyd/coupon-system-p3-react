@@ -11,9 +11,9 @@ export class CouponModel {
     public amount?: number;
     public price?: number;
     // ?
-    // public image: string;
+    public image?: string;
 
-    public constructor(id: number, category: string, title: string, description: string, startDate: Date, endDate: Date, amount: number, price: number) {
+    public constructor(id: number, category: string, title: string, description: string, startDate: Date, endDate: Date, amount: number, price: number, image: string) {
         this.id = id;
         this.category = category;
         this.title = title;
@@ -22,6 +22,7 @@ export class CouponModel {
         this.endDate = endDate;
         this.amount = amount;
         this.price = price;
+        this.image = image;
     }
 }
 
@@ -38,9 +39,9 @@ export class CouponPayloadModel {
     public amount?: number;
     public price?: number;
     // ?
-    // public image: string;
+    public image?: string;
 
-    public constructor(category: string, title: string, description: string, startDate: Date, endDate: Date, amount: number, price: number) {
+    public constructor(category: string, title: string, description: string, startDate: Date, endDate: Date, amount: number, price: number, image: string) {
 
         this.category = category;
         this.title = title;
@@ -49,5 +50,6 @@ export class CouponPayloadModel {
         this.endDate = endDate;
         this.amount = amount;
         this.price = price;
+        this.image = image;
     }
 }

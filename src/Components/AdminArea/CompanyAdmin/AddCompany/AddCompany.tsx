@@ -39,13 +39,13 @@ function AddCompany(): JSX.Element {
             .then(res => {
                 notify.success('Yay new Company created')
                 
-                navigate('/company')
+                navigate('/adminCompany')
                 // update App state (Global State)
                 store.dispatch(CompanyAddAction(res.data))
             })
             .catch(err => {
                 notify.error('Oppsy : ' + err.message);
-                navigate('/company')
+                navigate('/adminCompany')
             })
     }
 
