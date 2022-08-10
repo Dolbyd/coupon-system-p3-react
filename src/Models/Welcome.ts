@@ -24,11 +24,11 @@ export class CredentialsModel {
 }
 
 export class UserModel {
-    public token?: string;
+    public jwtToken?: string;
     public email?: string;
 
-    public constructor(token?: string, email?: string) {
-        this.token = token;
+    public constructor(jwtToken?: string, email?: string) {
+        this.jwtToken = jwtToken;
         this.email = email; 
 
     }

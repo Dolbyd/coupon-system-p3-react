@@ -11,15 +11,18 @@ function Logout(): JSX.Element {
         const res = window.confirm('Are you sure you want to logout?');
         if (res) {
             store.dispatch(logoutAction());
-            store.dispatch(???());
+            // store.dispatch(???());
             navigate("/login");
-        }
+        } 
     });
 
 
     return (
         <div className="Logout">
 
+            <>
+
+            </>
         </div>
     );
 }

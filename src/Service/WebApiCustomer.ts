@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CouponModel } from "../Models/Coupon";
 import globals from "./Globals";
+import tokenAxios from "./InterceptorAxios";
 
 
 class WebApiCustomer{
@@ -8,11 +9,11 @@ class WebApiCustomer{
     private customerApi = globals.urls.customer;
 
     public async getAllCustomerCoupons(): Promise<any> {
-        return await axios.get<CouponModel[]>(this.customerApi);
+        return await tokenAxios.get<CouponModel[]>(this.customerApi);
     }
 
     public async purchaseCoupon(coupon: CouponModel): Promise<any> {
-        return await axios.put<CouponModel>(this.customerApi+ 'purchase' , coupon);
+        return await tokenAxios.put<CouponModel>(this.customerApi+ 'purchase' , coupon);
     }
 
 

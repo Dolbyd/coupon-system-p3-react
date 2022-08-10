@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CustomerModel } from "../../../../Models/Customer";
 import { CustomersDownloadedAction } from "../../../../Redux/AdminCustomerAppState";
 import store from "../../../../Redux/Store";
+import { useToken } from "../../../../Service/LoginHook";
 import notify from "../../../../Service/Notyfication";
 import web from "../../../../Service/WebApiAdminCustomer";
 import GetSingleCustomer from "../GetSingleCustomer/GetSingleCustomer";
@@ -13,6 +14,8 @@ function GetAllCustomers(): JSX.Element {
 
     const [customers, setCustomers] = useState<CustomerModel[]>(store.getState().adminCustomerReducer.customers);
 
+    useToken();
+    
     useEffect(() => {
         if (store.getState().adminCustomerReducer.customers.length === 0) {
             web.getAllCustomers()

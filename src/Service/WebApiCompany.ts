@@ -1,6 +1,7 @@
 import globals from "./Globals";
 import { CouponPayloadModel , CouponModel } from "../Models/Coupon";
 import axios from "axios";
+import tokenAxios from "./InterceptorAxios";
 
 
 class WebApiCompany {
@@ -17,7 +18,7 @@ class WebApiCompany {
     // }
 
     public async addCoupon(coupon: CouponPayloadModel): Promise<any> {
-        return await axios.post<CouponModel>(this.companyApi, coupon);
+        return await tokenAxios.post<CouponModel>(this.companyApi, coupon);
     }
 
     // public async updateTask(id: number, task: TodoPayLoadModel): Promise<any> {
@@ -25,7 +26,7 @@ class WebApiCompany {
     // }
 
     public async updateCoupon(id: number, coupon: CouponPayloadModel): Promise<any> {
-        return await axios.put<any>(this.companyApi + id, coupon);
+        return await tokenAxios.put<any>(this.companyApi + id, coupon);
     }
 
     // public async deleteTask(id: number): Promise<any> {
@@ -33,7 +34,7 @@ class WebApiCompany {
     // }
 
     public async deleteCoupon(id: number): Promise<any> {
-        return await axios.delete<any>(this.companyApi + id);
+        return await tokenAxios.delete<any>(this.companyApi + id);
     }
 
     // public async getAllTasks(): Promise<any> {
@@ -41,7 +42,7 @@ class WebApiCompany {
     // }
 
     public async getAllCompanyCoupons(): Promise<any> {
-        return await axios.get<CouponModel[]>(this.companyApi);
+        return await tokenAxios.get<CouponModel[]>(this.companyApi);
     }
 
     // public async getSingleTask(id: number): Promise<any> {

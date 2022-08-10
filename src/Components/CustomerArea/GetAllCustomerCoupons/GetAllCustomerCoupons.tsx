@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { CouponModel } from "../../../Models/Coupon";
 import { CouponDownloadedAction } from "../../../Redux/CustomerAppState";
 import store from "../../../Redux/Store";
+import { useToken } from "../../../Service/LoginHook";
 import notify from "../../../Service/Notyfication";
 import web from "../../../Service/WebApiCustomer";
 import GetSingleCoupon from "../GetSingleCoupon/GetSingleCoupon";
@@ -16,6 +17,7 @@ function GetAllCustomerCoupons(): JSX.Element {
     const [category, setCategory] = useState<string>("ALL");
     const [filter, setFilter] = useState<CouponModel[]>(coupons);
 
+    useToken();
 
     useEffect(() => {
         // if (store.getState().customerReducer.coupons.length === 0) 
@@ -54,6 +56,9 @@ function GetAllCustomerCoupons(): JSX.Element {
                 <option value="ELECTRICITY">ELECTRICITY</option>
                 <option value="RESTAURANT">RESTAURANT</option>
                 <option value="VACATION">VACATION</option>
+                <option value="FOOTBALL">FOOTBALL</option>
+                <option value="BASKETBALL">BASKETBALL</option>
+                <option value="BASEBALL">BASEBALL</option>
             </select>
 
             <div>

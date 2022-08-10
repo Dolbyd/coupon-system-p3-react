@@ -8,10 +8,13 @@ import GetSingleCompany from "../GetSingleCompany/GetSingleCompany";
 import "./GetAllCompanies.css";
 import Table from 'react-bootstrap/Table';
 import { Link } from "react-router-dom";
+import { useToken } from "../../../../Service/LoginHook";
 
 function GetAllCompanies(): JSX.Element {
 
     const [companies, setCompanies] = useState<CompanyModel[]>(store.getState().adminCompanyReducer.companies);
+
+    useToken();
 
     useEffect(() => {
         if (store.getState().adminCompanyReducer.companies.length === 0) {

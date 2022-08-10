@@ -5,12 +5,9 @@ const tokenAxios = axios.create();
 
 tokenAxios.interceptors.request.use(request => {
 
-    // request.headers = {
-    //     "authorizationCustomer": store.getState().authCustomerReducer.customer?.token,
-    //     "authorizationCompany": store.getState().authCompanyReducer.company?.token,
-    //     "authorizationAdmin": store.getState().authAdminCompanyReducer.admin?.token
-
-    // };
+    request.headers = {
+        "Authorization": `Bearer ${store.getState().authReducer.user.jwtToken}`
+    };
 
     return request;
 });

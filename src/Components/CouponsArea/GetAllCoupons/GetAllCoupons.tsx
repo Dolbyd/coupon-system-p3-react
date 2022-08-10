@@ -17,21 +17,22 @@ function GetAllCoupons(): JSX.Element {
     const [price, setPrice] = useState<number>(0);
 
 
+
     useEffect(() => {
         // if (store.getState().couponsReducer.coupons.length === 0) 
-            web.getAllCoupons()
-                .then((res) => {
-                    notify.success("yay got my coupons")
-                    // update component state
-                    setCoupons(res.data);
-                    // update App state (Global state)
-                    store.dispatch(couponsDownloadedAction(res.data));
-                    console.log(res.data);
-                })
-                .catch((err) => {
-                    notify.error(err.message);
-                });
-        
+        web.getAllCoupons()
+            .then((res) => {
+                notify.success("yay got my coupons")
+                // update component state
+                setCoupons(res.data);
+                // update App state (Global state)
+                store.dispatch(couponsDownloadedAction(res.data));
+                console.log(res.data);
+            })
+            .catch((err) => {
+                notify.error(err.message);
+            });
+
     }, []);
 
     const handleSelect = (e: any) => {
@@ -46,7 +47,6 @@ function GetAllCoupons(): JSX.Element {
     }
 
     const handleInput = (e: any) => {
-
         setPrice(e.target.value);
     }
 
@@ -60,9 +60,14 @@ function GetAllCoupons(): JSX.Element {
                 <option value="ELECTRICITY">ELECTRICITY</option>
                 <option value="RESTAURANT">RESTAURANT</option>
                 <option value="VACATION">VACATION</option>
+                <option value="FOOTBALL">FOOTBALL</option>
+                <option value="BASKETBALL">BASKETBALL</option>
+                <option value="BASEBALL">BASEBALL</option>
             </select>
+
             <h2>{price}</h2>
             <input onInput={handleInput} type="range" max={10000} />
+
             <div className="d-flex justify-content-center g-4">
                 <Row xs={1} md={2} lg={4} className="g-4">
                     {(category === "ALL" ? coupons : filter).filter((c) => {

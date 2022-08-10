@@ -22,7 +22,7 @@ export class CompanyPayloadModel {
     public name?: string;
     public email?: string;
     public password?: string;
-    // ?
+    
 
 
     public constructor( name: string, email: string, password: string) {

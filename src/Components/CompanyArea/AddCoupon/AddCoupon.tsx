@@ -87,6 +87,9 @@ function AddCoupon(): JSX.Element {
                     <option value="ELECTRICITY">ELECTRICITY</option>
                     <option value="RESTAURANT">RESTAURANT</option>
                     <option value="VACATION">VACATION</option>
+                    <option value="FOOTBALL">FOOTBALL</option>
+                <option value="BASKETBALL">BASKETBALL</option>
+                <option value="BASEBALL">BASEBALL</option>
                 </select>
                 <span>{errors.category?.message}</span>
                 <label htmlFor="title">Title</label>

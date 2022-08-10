@@ -1,6 +1,7 @@
 import axios from "axios";
 import { CustomerPayloadModel,CustomerModel } from "../Models/Customer";
 import globals from "./Globals";
+import tokenAxios from "./InterceptorAxios";
 
 class WebApiAdminCustomer {
 
@@ -16,7 +17,7 @@ class WebApiAdminCustomer {
     // }
 
     public async addCustomer(customer: CustomerPayloadModel): Promise<any> {
-        return await axios.post<CustomerModel>(this.adminCustomerApi, customer);
+        return await tokenAxios.post<CustomerModel>(this.adminCustomerApi, customer);
     }
 
     // public async updateTask(id: number, task: TodoPayLoadModel): Promise<any> {
@@ -24,7 +25,7 @@ class WebApiAdminCustomer {
     // }
 
     public async updateCustomer(id: number, customer: CustomerPayloadModel): Promise<any> {
-        return await axios.put<any>(this.adminCustomerApi + id, customer);
+        return await tokenAxios.put<any>(this.adminCustomerApi + id, customer);
     }
 
     // public async deleteTask(id: number): Promise<any> {
@@ -32,7 +33,7 @@ class WebApiAdminCustomer {
     // }
 
     public async deleteCustomer(id: number): Promise<any> {
-        return await axios.delete<any>(this.adminCustomerApi + id);
+        return await tokenAxios.delete<any>(this.adminCustomerApi + id);
     }
 
     // public async getAllTasks(): Promise<any> {
@@ -40,7 +41,7 @@ class WebApiAdminCustomer {
     // }
 
     public async getAllCustomers(): Promise<any> {
-        return await axios.get<CustomerModel[]>(this.adminCustomerApi);
+        return await tokenAxios.get<CustomerModel[]>(this.adminCustomerApi);
     }
 
     // public async getSingleTask(id: number): Promise<any> {

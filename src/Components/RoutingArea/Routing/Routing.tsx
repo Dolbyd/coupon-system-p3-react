@@ -19,6 +19,8 @@ import GetAllCompanyCoupons from "../../CompanyArea/GetAllCompanyCoupons/GetAllC
 import GetAllCustomerCoupons from "../../CustomerArea/GetAllCustomerCoupons/GetAllCustomerCoupons";
 import PurchaseCoupon from "../../CustomerArea/PurchaseCoupon/PurchaseCoupon";
 import Login from "../../AuthArea/Login/Login";
+import Page404 from "../Page404/Page404";
+import Logout from "../../AuthArea/Logout/Logout";
 
 function Routing(): JSX.Element {
     return (
@@ -43,6 +45,9 @@ function Routing(): JSX.Element {
                 <Route path="/customer" element={<GetAllCustomerCoupons />} />
                 <Route path="/customer/purchase/:id" element={<PurchaseCoupon />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/logout" element={<Logout />} />
+
+                <Route path="*" element={<Page404 />} />
             </Routes>
         </div>
     );

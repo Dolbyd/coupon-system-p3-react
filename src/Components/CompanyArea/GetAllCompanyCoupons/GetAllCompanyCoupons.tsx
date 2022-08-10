@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { CouponModel } from "../../../Models/Coupon";
 import { CouponDownloadedAction } from "../../../Redux/CompanyAppState";
 import store from "../../../Redux/Store";
+import { useToken } from "../../../Service/LoginHook";
 import notify from "../../../Service/Notyfication";
 import web from "../../../Service/WebApiCompany"
 import GetSingleCoupon from "../GetSingleCoupon/GetSingleCoupon";
@@ -18,20 +19,22 @@ function GetAllCompanyCoupons(): JSX.Element {
     const [filter, setFilter] = useState<CouponModel[]>(coupons);
     const [price, setPrice] = useState<number>(0);
 
+    useToken();
+
     useEffect(() => {
         // if (store.getState().companyReducer.coupons.length === 0) 
-            web.getAllCompanyCoupons()
-                .then((res) => {
-                    notify.success("yay got my coupons")
-                    // update component state
-                    setCoupons(res.data);
-                    // update App state (Global state)
-                    store.dispatch(CouponDownloadedAction(res.data));
-                })
-                .catch((err) => {
-                    notify.error(err.message);
-                });
-        
+        web.getAllCompanyCoupons()
+            .then((res) => {
+                notify.success("yay got my coupons")
+                // update component state
+                setCoupons(res.data);
+                // update App state (Global state)
+                store.dispatch(CouponDownloadedAction(res.data));
+            })
+            .catch((err) => {
+                notify.error(err.message);
+            });
+
     }, []);
 
     const handleSelect = (e: any) => {
@@ -65,6 +68,10 @@ function GetAllCompanyCoupons(): JSX.Element {
                 <option value="ELECTRICITY">ELECTRICITY</option>
                 <option value="RESTAURANT">RESTAURANT</option>
                 <option value="VACATION">VACATION</option>
+                <option value="FOOTBALL">FOOTBALL</option>
+                <option value="BASKETBALL">BASKETBALL</option>
+                <option value="BASEBALL">BASEBALL</option>
+
             </select>
             <h2>{price}</h2>
             <input onInput={handleInput} type="range" max={10000} />

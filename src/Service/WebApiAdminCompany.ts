@@ -1,6 +1,7 @@
 import globals from "./Globals";
 import { CompanyPayloadModel , CompanyModel } from "../Models/Company";
 import axios from "axios";
+import tokenAxios from "./InterceptorAxios";
 
 // import tokenAxios from "./InterceptorAxios";
 
@@ -19,7 +20,7 @@ class WebApiAdminCompany {
     // }
 
     public async addCompany(company: CompanyPayloadModel): Promise<any> {
-        return await axios.post<CompanyModel>(this.adminCompanyApi, company);
+        return await tokenAxios.post<CompanyModel>(this.adminCompanyApi, company);
     }
 
     // public async updateTask(id: number, task: TodoPayLoadModel): Promise<any> {
@@ -27,7 +28,7 @@ class WebApiAdminCompany {
     // }
 
     public async updateCompany(id: number, company: CompanyPayloadModel): Promise<any> {
-        return await axios.put<any>(this.adminCompanyApi + id, company);
+        return await tokenAxios.put<any>(this.adminCompanyApi + id, company);
     }
 
     // public async deleteTask(id: number): Promise<any> {
@@ -35,7 +36,7 @@ class WebApiAdminCompany {
     // }
 
     public async deleteCompany(id: number): Promise<any> {
-        return await axios.delete<any>(this.adminCompanyApi + id);
+        return await tokenAxios.delete<any>(this.adminCompanyApi + id);
     }
 
     // public async getAllTasks(): Promise<any> {
@@ -43,7 +44,7 @@ class WebApiAdminCompany {
     // }
 
     public async getAllCompanies(): Promise<any> {
-        return await axios.get<CompanyModel[]>(this.adminCompanyApi);
+        return await tokenAxios.get<CompanyModel[]>(this.adminCompanyApi);
     }
 
     // public async getSingleTask(id: number): Promise<any> {

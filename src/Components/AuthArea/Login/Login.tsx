@@ -22,9 +22,9 @@ function Login(): JSX.Element {
                 .min(3, "at list 3 characters required")
                 .max(8, "at most 8 characters required")
                 .required("password is required"),
-        // clientType:
-        //     yup.string()
-        //     .required("client type is required")
+        clientType:
+            yup.string()
+            .required("client type is required")
     });
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid } } =
@@ -64,9 +64,9 @@ function Login(): JSX.Element {
                 <input {...register('password')} type="password" placeholder="password" id="password" />
                 <span>{errors.password?.message}</span>
                 <select {...register('clientType')} placeholder="clientType" id="clientType">
-                    <option value="admin">Admin</option>
-                    <option value="company">Company</option>
-                    <option value="customer">Customer</option>
+                    <option value="Administrator">Admin</option>
+                    <option value="Company">Company</option>
+                    <option value="Customer">Customer</option>
                 </select>
                 <button disabled={!isValid}>Login</button>
             </form>
