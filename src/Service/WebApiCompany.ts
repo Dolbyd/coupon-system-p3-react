@@ -40,7 +40,7 @@ class WebApiCompany {
     //     return await tokenAxios.get<TodoModel[]>(this.taskApi);
     // }
 
-    public async getAllCoupons(): Promise<any> {
+    public async getAllCompanyCoupons(): Promise<any> {
         return await axios.get<CouponModel[]>(this.companyApi);
     }
 

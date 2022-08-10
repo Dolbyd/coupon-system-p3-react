@@ -1,73 +1,49 @@
-export class AuthAppState {}
+import { CouponModel } from "../Models/Coupon";
 
-// // Step 1 - Create AppState and manage the collection once and in a centralize place
-// import {CustomerModel} from "../Models/Welcome";
+// Step 1 - Create AppState and manage the collection once and in a centralize place
+export class CustomerAppState {
+    public coupons: CouponModel[] = [];
+}
 
-// import store from "./Store";
+// Step 2 - Define ActionType using enum for all required operations
+export enum CustomersActionType {
 
-// export class AuthAppState {
-//     public customer: CustomerModel = new CustomerModel();
-//     token: any;
-//     public constructor() {
-//         try {
-//             const storedCustomer = JSON.parse(localStorage.getItem('customer') || "");
-//             if (storedCustomer) {
-//                 this.customer = storedCustomer;
-//             }
-//         }
-//         catch (err) {
-//             this.customer = null;
-//         }
-//     }
-// }
+    CouponsDownloaded = "CouponsDownloaded",
+    purchaseCoupon = "purchaseCoupon"
 
-// // Step 2 - Define ActionType using enum for all required operations
-// export enum AuthActionType {
-//     Register = "Register",
-//     Login = "Login",
-//     Logout = "Logout"
-// }
+}
 
-// // Step 3 - Define Action Interface to describe actionAction & payload if needed
-// export interface AuthAction {
-//     type: AuthActionType;
-//     payload?: any; // ? for logout
-// }
+// Step 3 - Define Action Interface to describe actionAction & payload if needed
+export interface CustomersAction {
+    type: CustomersActionType;
+    payload?: any;
+}
 
-// // Step 4 - Export Action Creators functions that gets payload and return relevant Action
-// export function registerAction(): AuthAction {
-//     return { type: AuthActionType.Register };
-// }
+// Step 4 - Export Action Creators functions that gets payload and return relevant Action
 
-// export function loginAction(customer: CustomerModel): AuthAction {
-//     return { type: AuthActionType.Login, payload: customer };
-// }
 
-// export function logoutAction(): AuthAction {
-//     return { type: AuthActionType.Logout };
-// }
+export function CouponDownloadedAction(coupons: CouponModel[]): CustomersAction {
+    return { type: CustomersActionType.CouponsDownloaded, payload: coupons };
+}
 
-// // Step 5 - Reducer function perform the required action
-// export function authCustomerReducer(currentState: AuthAppState = new AuthAppState(),
-//     action: AuthAction): AuthAppState {
-//     // const newState = new CatsAppState();
-//     // newState.cats = currentState.cats;
+export function PurchaseCouponAction(coupon: CouponModel): CustomersAction {
+    return { type: CustomersActionType.purchaseCoupon, payload: coupon };
+}
 
-//     const newState = { ...currentState } //Spread Operator
-//     switch (action.type) {
-//         case AuthActionType.Register: //Payload is registered user from backend
-//             break;
-//         case AuthActionType.Login://Payload is logged i user from backend
-//             newState.customer = action.payload;
-//             localStorage.setItem("customer", JSON.stringify(newState.customer)); // Saving in the session storage (won't be deleted)
-//             break;
-//         case AuthActionType.Logout: // No payload
-//             newState.customer = null;
-//             localStorage.removeItem("customer");
+// Step 5 - Reducer function perform the required action
+export function customerReducer(currentState: CustomerAppState = new CustomerAppState(),
+    action: CustomersAction): CustomerAppState {
 
-//             break;
+    const newState = { ...currentState } //Spread Operator
+    switch (action.type) {
+        case CustomersActionType.CouponsDownloaded:
+            newState.coupons = action.payload;
+            break;
+        case CustomersActionType.purchaseCoupon:
+            newState.coupons = newState.coupons.filter(t => t.id !== action.payload);
+            break;
 
-//     }
-//     return newState;
+    }
+    return newState;
+}
 
-// }

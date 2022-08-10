@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import MenuLink from "../../RoutingArea/MenuLink/MenuLink";
 import "./Menu.css";
 
 function Menu(): JSX.Element {
@@ -11,6 +10,9 @@ function Menu(): JSX.Element {
                 <Link to="adminCompany" className="btn btn-primary navbar-form ">AdminCompanies</Link>
                 <Link to="adminCustomer" className="btn btn-primary navbar-form ">AdminCustomers</Link>
                 <Link to="company" className="btn btn-primary navbar-form ">Company</Link>
+                <Link to="coupon" className="btn btn-primary navbar-form " >Home page</Link>
+                <Link to="customer" className="btn btn-primary navbar-form " >Customer</Link>
+
             </div>
             <p></p>
 

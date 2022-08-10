@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { CouponDeletedAction } from "../../../Redux/CouponsAppState";
+import {  CouponDeletedAction } from "../../../Redux/CompanyAppState";
+
 import store from "../../../Redux/Store";
 import notify from "../../../Service/Notyfication";
 import web from "../../../Service/WebApiCompany";

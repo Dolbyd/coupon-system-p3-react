@@ -28,15 +28,16 @@ export function CouponDownloadedAction(coupons: CouponModel[]): CompaniesAction 
     return { type: CompaniesActionType.CouponsDownloaded, payload: coupons };
 }
 
+
 export function CouponAddAction(coupons: CouponPayloadModel): CompaniesAction {
     return { type: CompaniesActionType.CouponAdded, payload: coupons };
 }
 
-export function CompanyUpdatedAction(coupons: CouponModel): CompaniesAction {
+export function CouponUpdatedAction(coupons: CouponModel): CompaniesAction {
     return { type: CompaniesActionType.CouponUpdated, payload: coupons };
 }
 
-export function CompanyDeletedAction(id: number): CompaniesAction {
+export function CouponDeletedAction(id: number): CompaniesAction {
     return { type: CompaniesActionType.CouponDeleted, payload: id };
 }
 
@@ -62,7 +63,7 @@ export function companyReducer(currentState: CompanyAppState = new CompanyAppSta
             break;
         case CompaniesActionType.CouponDeleted:
             newState.coupons = newState.coupons.filter(t => t.id !== action.payload);
-            break
+            break;
 
     }
     return newState;

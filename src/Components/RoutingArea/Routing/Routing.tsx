@@ -11,10 +11,14 @@ import GetAllCustomers from "../../AdminArea/CustomerAdmin/GetAllCustomers/GetAl
 import UpdateCustomer from "../../AdminArea/CustomerAdmin/UpdateCustomer/UpdateCustomer";
 import AddCoupon from "../../CompanyArea/AddCoupon/AddCoupon";
 import DeleteCoupon from "../../CompanyArea/DeleteCoupon/DeleteCoupon";
-import GetAllCoupons from "../../CompanyArea/GetAllCoupons/GetAllCoupons";
+import GetAllCoupons from "../../CouponsArea/GetAllCoupons/GetAllCoupons";
 import UpdateCoupon from "../../CompanyArea/UpdateCoupon/UpdateCoupon";
 import Home from "../../PageArea/Home/Home";
 import "./Routing.css";
+import GetAllCompanyCoupons from "../../CompanyArea/GetAllCompanyCoupons/GetAllCompanyCoupons";
+import GetAllCustomerCoupons from "../../CustomerArea/GetAllCustomerCoupons/GetAllCustomerCoupons";
+import PurchaseCoupon from "../../CustomerArea/PurchaseCoupon/PurchaseCoupon";
+import Login from "../../AuthArea/Login/Login";
 
 function Routing(): JSX.Element {
     return (
@@ -23,6 +27,7 @@ function Routing(): JSX.Element {
                 <Route path="/" element={<App />} />
                 <Route path="home" element={<Home />} />
                 <Route index element={<Home />} />
+                <Route path="/coupon" element={<GetAllCoupons />} />
                 <Route path="/adminCompany" element={<GetAllCompanies />} />
                 <Route path="/adminCompany/add" element={<AddCompany />} />
                 <Route path="/adminCompany/update/:id" element={<UpdateCompany />} />
@@ -31,10 +36,13 @@ function Routing(): JSX.Element {
                 <Route path="/adminCustomer/add" element={<AddCustomer />} />
                 <Route path="/adminCustomer/update/:id" element={<UpdateCustomer />} />
                 <Route path="/adminCustomer/delete/:id" element={<DeleteCustomer />} />
-                <Route path="/company" element={<GetAllCoupons />} />
+                <Route path="/company" element={<GetAllCompanyCoupons />} />
                 <Route path="/company/add" element={<AddCoupon />} />
                 <Route path="/company/update/:id" element={<UpdateCoupon />} />
                 <Route path="/company/delete/:id" element={<DeleteCoupon />} />
+                <Route path="/customer" element={<GetAllCustomerCoupons />} />
+                <Route path="/customer/purchase/:id" element={<PurchaseCoupon />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
         </div>
     );

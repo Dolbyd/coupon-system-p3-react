@@ -8,7 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "./UpdateCoupon.css";
 import web from "../../../Service/WebApiCompany";
 import notify from "../../../Service/Notyfication";
-import { CouponUpdatedAction } from "../../../Redux/CouponsAppState";
+import { CouponUpdatedAction } from "../../../Redux/CompanyAppState";
 
 
 function UpdateCoupon(): JSX.Element {

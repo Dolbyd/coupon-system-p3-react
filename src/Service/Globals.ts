@@ -6,8 +6,10 @@ class DevelopmentGlobals extends Globals{
         adminCompany: "http://localhost:8080/api/cs/admin/company/",
         adminCustomer: "http://localhost:8080/api/cs/admin/customer/",
         company: "http://localhost:8080/api/cs/company/",
-        coupons: "http://localhost:8080/api/cs/",
+        coupon: "http://localhost:8080/api/cs/coupon/",
+        customer:"http://localhost:8080/api/cs/customer/",
         welcome: "http://localhost:8080/api/cs/auth/"
+        
         
     }
 }
@@ -17,7 +19,8 @@ class ProductionGlobals extends Globals{
         adminCompany: "www.aws.com/dolbydWebSite/admin/",
         adminCustomer: "www.aws.com/dolbydWebSite/admin/",
         company: "www.aws.com/dolbydWebSite/company/",
-        coupons: "www.aws.com/dolbydWebSite/coupons",
+        coupon: "www.aws.com/dolbydWebSite/coupons",
+        customer: "www.aws.com/dolbydWebSite/customer",
         welcome: "www.aws.com/dolbydWebSite/welcome/",
         
     }
