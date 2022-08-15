@@ -28,8 +28,6 @@ function AddCoupon(): JSX.Element {
                 .required("description is required"),
         startDate:
             yup.date()
-                // .min(new Date(), 'past start date 🤔')
-
                 .default(new Date())
                 .typeError("You must specify a start date")
                 .required("start date is required")
@@ -48,7 +46,7 @@ function AddCoupon(): JSX.Element {
         price:
             yup.number()
                 .min(0)
-                .required("amount is required"),
+                .required("price is required"),
         image:
             yup.string()
                 .required("for now, write something "),
@@ -75,6 +73,10 @@ function AddCoupon(): JSX.Element {
             })
     }
 
+    const no = () => {
+        navigate('/company')
+    }
+
 
     return (
         <div className="AddCoupon">
@@ -83,13 +85,9 @@ function AddCoupon(): JSX.Element {
             <form onSubmit={handleSubmit(yalla)}>
                 <label htmlFor="category">Category</label>
                 <select {...register('category')} placeholder="category" id="category">
-                    <option value="FOOD">FOOD</option>
-                    <option value="ELECTRICITY">ELECTRICITY</option>
-                    <option value="RESTAURANT">RESTAURANT</option>
-                    <option value="VACATION">VACATION</option>
                     <option value="FOOTBALL">FOOTBALL</option>
-                <option value="BASKETBALL">BASKETBALL</option>
-                <option value="BASEBALL">BASEBALL</option>
+                    <option value="BASKETBALL">BASKETBALL</option>
+                    <option value="BASEBALL">BASEBALL</option>
                 </select>
                 <span>{errors.category?.message}</span>
                 <label htmlFor="title">Title</label>
@@ -114,6 +112,7 @@ function AddCoupon(): JSX.Element {
                 <input {...register('image')} type="text" placeholder="image" id="image" />
                 <span>{errors.image?.message}</span>
                 <button disabled={!isValid}>Add</button>
+                <button onClick={no}>❌</button>
             </form>
 
         </div>

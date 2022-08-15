@@ -32,12 +32,10 @@ function GetAllCompanies(): JSX.Element {
         }
     }, []);
 
-
-
     return (
         <div className="GetAllCompanies">
             <h2>Companies list</h2>
-            <Link to="add" className="btn btn-primary d-flex justify-content-center .d-sm-inline-flex">AddCompany</Link> 
+            <Link to="add" className="btn btn-primary d-flex justify-content-center .d-sm-inline-flex">Add New Company</Link> 
             <br />
             <div>
                 {
@@ -45,7 +43,7 @@ function GetAllCompanies(): JSX.Element {
                         ?
                         <Table striped bordered hover>
                             <thead>
-                                <tr>
+                                <tr className="text-light">
                                     <th >Company Name</th>
                                     <th>Email</th>
                                     <th>Password</th>

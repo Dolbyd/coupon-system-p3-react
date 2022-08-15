@@ -49,6 +49,10 @@ function AddCompany(): JSX.Element {
             })
     }
 
+    const no = () => {
+        navigate('/adminCompany')
+    }
+
 
 
     return (
@@ -66,6 +70,7 @@ function AddCompany(): JSX.Element {
                 <input {...register('password')} type="password" placeholder="password" id="password" />
                 <span>{errors.password?.message}</span>
                 <button disabled={!isValid}>Add</button>
+                <button onClick={no}>❌</button>
             </form>
         </div>
     );

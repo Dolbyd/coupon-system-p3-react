@@ -8,7 +8,7 @@ interface GetSingleCustomerProps {
 
 function GetSingleCustomer(props: GetSingleCustomerProps): JSX.Element {
     return (
-        <tr>
+        <tr className="bg-light">
             <td>{props.customer.firstName}</td>
             <td>{props.customer.lastName}</td>
             <td>{props.customer.email}</td>

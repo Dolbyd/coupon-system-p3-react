@@ -58,6 +58,10 @@ function UpdateCompany(): JSX.Element {
             .catch(err => { notify.error('Oppsy : ' + err.message) })
     }
 
+    const no = () => {
+        navigate('/adminCompany')
+    }
+
     return (
         <div className="UpdateCompany">
             <h1>update Company</h1>
@@ -73,6 +77,7 @@ function UpdateCompany(): JSX.Element {
                 <input {...register('password')} type="password" placeholder="password" id="password" />
                 <span>{errors.password?.message}</span>
                 <button disabled={!isDirty}>✔️</button>
+                <button onClick={no}>❌</button>
             </form>
         </div>
     );

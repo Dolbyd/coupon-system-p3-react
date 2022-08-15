@@ -15,8 +15,8 @@ function CouponsItem(props: CouponsItemProps): JSX.Element {
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={props.coupon.image} />
             <Card.Body>
-                <Card.Title>{props.coupon.description}</Card.Title>
-                <Card.Text>
+                <Card.Title className="text-dark">{props.coupon.description}</Card.Title>
+                <Card.Text className="text-dark">
                     {props.coupon.title}
                 </Card.Text>
             </Card.Body>

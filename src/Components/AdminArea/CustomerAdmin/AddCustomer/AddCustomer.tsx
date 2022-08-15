@@ -51,6 +51,10 @@ function AddCustomer(): JSX.Element {
                 navigate('/adminCustomer')
             })
     }
+    
+    const no = () => {
+        navigate('/adminCustomer')
+    }
 
     return (
         <div className="AddCustomer">
@@ -63,6 +67,7 @@ function AddCustomer(): JSX.Element {
                 <label htmlFor="lastName">Last Name</label>
                 <input {...register('lastName')} type="text" placeholder="lastName" id="lastName" />
                 <span>{errors.firstName?.message}</span>
+                <br />
                 <label htmlFor="email">Email</label>
                 <input {...register('email')} type="email" placeholder="email" id="email" />
                 <span>{errors.email?.message}</span>
@@ -70,6 +75,7 @@ function AddCustomer(): JSX.Element {
                 <input {...register('password')} type="password" placeholder="password" id="password" />
                 <span>{errors.password?.message}</span>
                 <button disabled={!isValid}>Add</button>
+                <button onClick={no}>❌</button>
             </form>
 
         </div>

@@ -21,9 +21,7 @@ function Logout(): JSX.Element {
 
     return (
         <div className="Logout">
-
             <>
-
             </>
         </div>
     );

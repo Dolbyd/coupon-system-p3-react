@@ -10,7 +10,7 @@ interface GetSingleCompanyProps {
 function GetSingleCompany(props: GetSingleCompanyProps): JSX.Element {
     return (
         // <div className="GetSingleCompany">
-        <tr>
+        <tr className="bg-light">
             <td>{props.company.name}</td>
             <td>{props.company.email}</td>
             <td>{props.company.password}</td>

@@ -6,7 +6,7 @@ import Advertising2 from './Components/LayoutArea/Advertising2/Advertising2';
 import Footer from './Components/LayoutArea/Footer/Footer';
 import Header from './Components/LayoutArea/Header/Header';
 import Main from './Components/LayoutArea/Main/Main';
-import Menu from './Components/LayoutArea/Menu/Menu';
+import Menu from './Components/LayoutArea/Title/Title';
 
 function App() {
   return (

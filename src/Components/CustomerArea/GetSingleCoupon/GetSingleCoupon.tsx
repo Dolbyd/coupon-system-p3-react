@@ -9,7 +9,7 @@ interface GetSingleCouponProps{
 }
 function GetSingleCoupon(props:GetSingleCouponProps): JSX.Element {
     return (
-        <tr>
+        <tr className="bg-light">
             <td>{props.coupon.category}</td>
             <td>{props.coupon.title}</td>
             <td>{props.coupon.description}</td>

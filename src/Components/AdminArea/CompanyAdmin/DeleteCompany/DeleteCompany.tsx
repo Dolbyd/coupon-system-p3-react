@@ -35,7 +35,7 @@ function DeleteCompany(): JSX.Element {
     return (
         <div className="DeleteCompany">
             <h1>Delete Company</h1>
-            <h3>Are you sure you wont to delete company #{id}?</h3>
+            <h3>Are you sure you want to delete the company #{id}?</h3>
             <div>
                 <button onClick={yes}>YES</button>
                 <button onClick={no}>NO</button>

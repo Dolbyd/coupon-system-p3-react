@@ -41,7 +41,6 @@ function DeleteCoupon(): JSX.Element {
                 <button onClick={yes}>YES</button>
                 <button onClick={no}>NO</button>
             </div>
-
         </div>
     );
 }

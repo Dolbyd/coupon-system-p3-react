@@ -48,31 +48,28 @@ function GetAllCustomerCoupons(): JSX.Element {
 
     return (
         <div className="GetAllCustomerCoupons">
-            <h2>coupons list</h2>
+            <h1 className=" className=">My coupons list</h1>
 
+            <span className="display-6">Category 👉</span>
             <select onChange={handleSelect} placeholder="category" id="category">
                 <option value="ALL">ALL</option>
-                <option value="FOOD">FOOD</option>
-                <option value="ELECTRICITY">ELECTRICITY</option>
-                <option value="RESTAURANT">RESTAURANT</option>
-                <option value="VACATION">VACATION</option>
                 <option value="FOOTBALL">FOOTBALL</option>
                 <option value="BASKETBALL">BASKETBALL</option>
                 <option value="BASEBALL">BASEBALL</option>
             </select>
-
+            
             <div>
                 {
                     (coupons.length > 0)
                         ?
                         <Table striped bordered hover>
                             <thead>
-                                <tr>
-                                    <th >Category</th>
-                                    <th>title</th>
-                                    <th>description</th>
-                                    <th>endDate</th>
-                                    <th>price</th>
+                                <tr className="text-light">
+                                    <th>Category</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>End Date</th>
+                                    <th>Price</th>
                                     {/* <th>image</th> */}
                                 </tr>
                             </thead>

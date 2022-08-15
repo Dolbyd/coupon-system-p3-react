@@ -59,21 +59,19 @@ function GetAllCompanyCoupons(): JSX.Element {
         <div className="GetAllCoupons">
             <h2>coupons list</h2>
 
-            <Link to="add" className="btn btn-primary d-flex justify-content-center .d-sm-inline-flex">AddCoupon</Link>
+            <Link to="add" className="btn btn-primary d-flex justify-content-center .d-sm-inline-flex">Add New Coupon</Link>
 
+            <span className="display-6">Category 👉 </span>
             <select onChange={handleSelect} placeholder="category" id="category">
                 <option value="ALL">ALL</option>
-                <option value="FOOD">FOOD</option>
-                <option value="ELECTRICITY">ELECTRICITY</option>
-                <option value="RESTAURANT">RESTAURANT</option>
-                <option value="VACATION">VACATION</option>
                 <option value="FOOTBALL">FOOTBALL</option>
                 <option value="BASKETBALL">BASKETBALL</option>
                 <option value="BASEBALL">BASEBALL</option>
 
             </select>
-            <h2>{price}</h2>
-            <input onInput={handleInput} type="range" max={10000} />
+            
+            <span className="display-6"> Max price 👉 </span>
+            <input onInput={handleInput} type="range" max={1000} /> <span className="display-6">{price}</span>
 
 
             <br />
@@ -83,17 +81,17 @@ function GetAllCompanyCoupons(): JSX.Element {
                         ?
                         <Table striped bordered hover>
                             <thead>
-                                <tr>
+                                <tr className="text-light">
                                     <th >Category</th>
-                                    <th>title</th>
-                                    <th>description</th>
-                                    <th>startDate</th>
-                                    <th>endDate</th>
-                                    <th>amount</th>
-                                    <th>price</th>
-                                    <th>image</th>
-                                    <th>update</th>
-                                    <th>delete</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    {/* <th>image</th> */}
+                                    <th>Update</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

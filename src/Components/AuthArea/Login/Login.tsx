@@ -53,9 +53,10 @@ function Login(): JSX.Element {
 
 
     return (
-        <div className="Login  ">
+        <div className="Login">
 
-            <h1 >Login</h1>
+            <h1 >Welcome To Sports Coupon System</h1>
+            <h3>Enter email, password & client type to Login</h3>
             {/* step 9 - handelSubmit */}
             <form onSubmit={handleSubmit(loginUser)} >
                 <label htmlFor="email">Email</label>

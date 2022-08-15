@@ -35,7 +35,7 @@ function GetAllCustomers(): JSX.Element {
     return (
         <div className="GetAllCustomers">
             <h2>Customers list</h2>
-            <Link to="add" className="btn btn-primary">AddCustomer</Link>
+            <Link to="add" className="btn btn-primary d-flex justify-content-center .d-sm-inline-flex">Add New Customer</Link>
             <br />
             <div>
                 {
@@ -43,8 +43,9 @@ function GetAllCustomers(): JSX.Element {
                         ?
                         <Table striped bordered hover>
                             <thead>
-                                <tr>
+                                <tr className="text-light">
                                     <th >First Name</th>
+                                    
                                     <th >Last Name</th>
                                     <th>Email</th>
                                     <th>Password</th>

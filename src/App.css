@@ -22,12 +22,17 @@
 
 
 
-.App>.Menu {
+.App>.Title {
   /* background-color: #FCF9C6; */
   /* border: 1px solid black; */
   grid-column: 12 span;
   grid-row: 1 span;
-  
+  font-family: Copperplate, Papyrus, fantasy;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .App>.Advertising1 {
@@ -43,7 +48,7 @@
   grid-column: 8 span;
   grid-row: 8 span;
   overflow: auto;
-  color:white
+  color: white
 }
 
 .App>.Advertising2 {
@@ -59,6 +64,5 @@
   border: 1px solid black; */
   grid-column: 12 span;
   grid-row: 1 span;
-  color:white
-
+  color: white
 }

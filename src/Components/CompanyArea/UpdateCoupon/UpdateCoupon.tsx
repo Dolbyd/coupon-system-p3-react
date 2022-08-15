@@ -82,6 +82,10 @@ function UpdateCoupon(): JSX.Element {
             .catch(err => { notify.error('Oppsy : ' + err.message) })
     }
 
+    const no = () => {
+        navigate('/company')
+    }
+
     return (
         <div className="UpdateCoupon">
 
@@ -121,6 +125,7 @@ function UpdateCoupon(): JSX.Element {
                 <input {...register('image')} type="text" placeholder="image" id="image" />
                 <span>{errors.image?.message}</span>
                 <button disabled={!isDirty}>✔️</button>
+                <button onClick={no}>❌</button>
             </form>
         </div>
     );

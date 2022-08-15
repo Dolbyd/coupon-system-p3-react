@@ -20,7 +20,7 @@ function PurchaseCoupon(): JSX.Element {
     const [coupon, setCoupon] = useState<CouponModel>(store.getState().couponsReducer.coupons.filter(c => c.id === couponId)[0]);
 
     const no = () => {
-        navigate('/customer')
+        navigate('/coupon')
     }
 
     const yes = () => {
@@ -42,7 +42,7 @@ function PurchaseCoupon(): JSX.Element {
         <div className="PurchaseCoupon">
 
             <h1>purchase Coupon</h1>
-            <h3>Are you sure you wont to Purchase coupon #{id}?</h3>
+            <h3>Are you sure you want to Purchase coupon #{id}?</h3>
             <div>
                 <button onClick={yes}>YES</button>
                 <button onClick={no}>NO</button>

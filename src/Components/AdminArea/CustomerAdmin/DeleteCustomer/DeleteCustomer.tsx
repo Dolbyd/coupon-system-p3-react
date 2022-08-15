@@ -15,7 +15,7 @@ function DeleteCustomer(): JSX.Element {
     const [id, setId] = useState<number>(customerId);
 
     const no = () => {
-        navigate('/customer')
+        navigate('/adminCustomer')
     }
 
     const yes = () => {
@@ -37,7 +37,7 @@ function DeleteCustomer(): JSX.Element {
     return (
         <div className="DeleteCustomer">
             <h1>Delete Customer</h1>
-            <h3>Are you sure you wont to delete customer #{id}?</h3>
+            <h3>Are you sure you want to delete the customer #{id}?</h3>
             <div>
                 <button onClick={yes}>YES</button>
                 <button onClick={no}>NO</button>
