@@ -3,7 +3,7 @@ import { UserModel } from "../Models/Welcome";
 
 export class AuthAppState {
     public user: UserModel = new UserModel();
-    token: any;
+    
     public constructor(){
         try {
             const storedUser = JSON.parse(localStorage.getItem('user') || "");
@@ -12,7 +12,7 @@ export class AuthAppState {
             }
         }
         catch (err) {
-            this.user = null;
+            console.log(err);
         }
     }
 }
@@ -53,9 +53,8 @@ export function authReducer(currentState: AuthAppState = new AuthAppState(),
             localStorage.setItem("user", JSON.stringify(newState.user)); // Saving in the session storage (won't be deleted)
             break;
         case AuthActionType.Logout: // No payload
-            newState.user = null;
+            newState.user = new UserModel;
             localStorage.removeItem("user");
-
             break;
 
     }

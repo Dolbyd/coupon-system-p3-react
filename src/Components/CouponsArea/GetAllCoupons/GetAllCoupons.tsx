@@ -53,7 +53,8 @@ function GetAllCoupons(): JSX.Element {
     return (
         <div className="GetAllCoupons ">
 
-            <h1>All Coupons</h1>
+
+            
             <select onChange={handleSelect} placeholder="category" id="category">
                 <option value="ALL">ALL</option>
                 <option value="FOOD">FOOD</option>
@@ -65,9 +66,13 @@ function GetAllCoupons(): JSX.Element {
                 <option value="BASEBALL">BASEBALL</option>
             </select>
 
+            
             <h2>{price}</h2>
             <input onInput={handleInput} type="range" max={10000} />
-
+            
+            
+            <h1>All Coupons</h1>
+            
             <div className="d-flex justify-content-center g-4">
                 <Row xs={1} md={2} lg={4} className="g-4">
                     {(category === "ALL" ? coupons : filter).filter((c) => {

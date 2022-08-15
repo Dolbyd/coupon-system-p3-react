@@ -13,7 +13,9 @@ function Logout(): JSX.Element {
             store.dispatch(logoutAction());
             // store.dispatch(???());
             navigate("/login");
-        } 
+        } else {
+            navigate("/coupon");
+        }
     });
 
 

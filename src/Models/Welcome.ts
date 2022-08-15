@@ -24,12 +24,15 @@ export class CredentialsModel {
 }
 
 export class UserModel {
-    public jwtToken?: string;
-    public email?: string;
+    public jwtToken: string;
+    public email: string;
+    public clientType: string;
 
-    public constructor(jwtToken?: string, email?: string) {
-        this.jwtToken = jwtToken;
-        this.email = email; 
+    public constructor(jwtToken?: string, email?: string, clientType?: string) {
+        this.jwtToken = jwtToken || "";
+        this.email = email || "";
+        this.clientType = clientType || "";
 
     }
+
 }

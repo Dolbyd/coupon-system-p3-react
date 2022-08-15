@@ -13,7 +13,7 @@ import "./GetAllCustomerCoupons.css";
 
 function GetAllCustomerCoupons(): JSX.Element {
 
-    const [coupons, setCoupons] = useState<CouponModel[]>(store.getState().customerReducer.coupons);
+    const [coupons, setCoupons] = useState<CouponModel[]>([]);
     const [category, setCategory] = useState<string>("ALL");
     const [filter, setFilter] = useState<CouponModel[]>(coupons);
 
@@ -73,7 +73,7 @@ function GetAllCustomerCoupons(): JSX.Element {
                                     <th>description</th>
                                     <th>endDate</th>
                                     <th>price</th>
-                                    <th>image</th>
+                                    {/* <th>image</th> */}
                                 </tr>
                             </thead>
                             <tbody>

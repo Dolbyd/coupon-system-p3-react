@@ -4,48 +4,61 @@
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
-  background-color: aqua;
+  /* background-color: aqua; */
+  /* background-image: url("https://media.istockphoto.com/vectors/sports-pattern-with-soccerfootball-symbols-in-hand-draw-style-vector-vector-id1149196930?k=20&m=1149196930&s=612x612&w=0&h=8SR8cdwIvgh3gcEfXA0-kNXpSSyfAqt3sqCSrLMbjnk="); */
+  background-image: url("https://cdn.wallpapersafari.com/36/85/se0GRy.jpg");
 }
 
-.App > .Header{
-  background-color:#9EB23B ;
-  border: 1px solid black;
+.App>.Header {
+  /* background-color: #9EB23B; */
+  /* border: 1px solid black; */
   grid-column: 12 span;
   grid-row: 2 span;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-family: sans;
+  color: red;
+  font-size: xx-large;
 }
-.App > .Menu{
-  background-color:#FCF9C6 ;
-  border: 1px solid black;
+
+
+
+.App>.Menu {
+  /* background-color: #FCF9C6; */
+  /* border: 1px solid black; */
   grid-column: 12 span;
   grid-row: 1 span;
-}
-
-.App > .Advertising1{
-  background-color:#FCF9C6 ;
-  border: 1px solid black;
-  grid-column: 2 span;
-  grid-row: 7 span;
-}
-
-.App > .Main{
-  background-color:#C7D36F ;
-  border: 1px solid black;
-  grid-column: 8 span;
-  grid-row: 7 span;
-  overflow: auto;
-}
-
-.App > .Advertising2{
-  background-color:#FCF9C6 ;
-  border: 1px solid black;
-  grid-column: 2 span;
-  grid-row: 7 span;
-}
-
-.App > .Footer{
-  background-color:#E0DECA ;
-  border: 1px solid black;
-  grid-column: 12 span;
-  grid-row: 2 span;
   
+}
+
+.App>.Advertising1 {
+  /* background-color: #C7D36F;
+  border: 1px solid black; */
+  grid-column: 2 span;
+  grid-row: 8 span;
+}
+
+.App>.Main {
+  /* background-color: #C7D36F;
+  border: 1px solid black; */
+  grid-column: 8 span;
+  grid-row: 8 span;
+  overflow: auto;
+  color:white
+}
+
+.App>.Advertising2 {
+  /* background-color: #C7D36F;
+  border: 1px solid black; */
+  grid-column: 2 span;
+  grid-row: 8 span;
+}
+
+
+.App>.Footer {
+  /* background-color: #E0DECA;
+  border: 1px solid black; */
+  grid-column: 12 span;
+  grid-row: 1 span;
+  color:white
+
 }

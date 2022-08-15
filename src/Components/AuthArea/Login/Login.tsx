@@ -12,6 +12,7 @@ import { loginAction } from "../../../Redux/WelcomeAppState";
 function Login(): JSX.Element {
 
     const navigate = useNavigate();
+    
 
     const schema = yup.object().shape({
         email:
@@ -46,15 +47,15 @@ function Login(): JSX.Element {
             })
             .catch(err => {
                 console.log(err);
-                notify.error(err.value);
+                notify.error("email , password or client type are incorrect...plz try again");
             })
     }
 
 
     return (
-        <div className="Login">
+        <div className="Login  ">
 
-            <h1>Login</h1>
+            <h1 >Login</h1>
             {/* step 9 - handelSubmit */}
             <form onSubmit={handleSubmit(loginUser)} >
                 <label htmlFor="email">Email</label>

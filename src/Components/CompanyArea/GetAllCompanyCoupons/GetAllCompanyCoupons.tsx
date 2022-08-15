@@ -49,7 +49,6 @@ function GetAllCompanyCoupons(): JSX.Element {
     }
 
     const handleInput = (e: any) => {
-
         setPrice(e.target.value);
     }
 
@@ -101,7 +100,7 @@ function GetAllCompanyCoupons(): JSX.Element {
                                 {(category === "ALL" ? coupons : filter).filter((c) => {
                                     return c.price! > price;
                                 }).map(t => <GetSingleCoupon key={t.id} coupon={t} />)}
-                                {/* {coupons.map(t => <GetSingleCoupon key={t.id} coupon={t} />)} */}
+                                
                             </tbody>
                         </Table>
                         :

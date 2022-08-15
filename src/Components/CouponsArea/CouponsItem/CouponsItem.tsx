@@ -13,7 +13,7 @@ function CouponsItem(props: CouponsItemProps): JSX.Element {
     return (
 
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="https://media.giphy.com/media/J147q8Ip0EmLQFJOPZ/giphy.gif" />
+            <Card.Img variant="top" src={props.coupon.image} />
             <Card.Body>
                 <Card.Title>{props.coupon.description}</Card.Title>
                 <Card.Text>

@@ -15,7 +15,7 @@ function GetSingleCoupon(props:GetSingleCouponProps): JSX.Element {
             <td>{props.coupon.description}</td>
             <td><span>{moment(props.coupon.endDate).format("DD/MM/yyyy")}</span></td>
             <td>{props.coupon.price}</td>
-            <td>{props.coupon.image}</td>
+            {/* <td>{props.coupon.image}</td> */}
             
 
         </tr>
