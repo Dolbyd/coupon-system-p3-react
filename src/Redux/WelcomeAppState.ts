@@ -26,7 +26,7 @@ export enum AuthActionType {
 // Step 3 - Define Action Interface to describe actionAction & payload if needed
 export interface AuthAction {
     type: AuthActionType;
-    payload?: any; // ? for logout
+    payload?: any; 
 }
 
 // Step 4 - Export Action Creators functions that gets payload and return relevant Action
@@ -42,8 +42,7 @@ export function logoutAction(): AuthAction {
 // Step 5 - Reducer function perform the required action
 export function authReducer(currentState: AuthAppState = new AuthAppState(),
     action: AuthAction): AuthAppState {
-    // const newState = new CatsAppState();
-    // newState.cats = currentState.cats;
+
 
     
     const newState = { ...currentState } //Spread Operator

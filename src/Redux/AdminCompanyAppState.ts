@@ -45,8 +45,6 @@ export function CompanyDeletedAction(id: number): AdminCompaniesAction {
 // Step 5 - Reducer function perform the required action
 export function adminCompanyReducer(currentState: AdminCompanyAppState = new AdminCompanyAppState(),
     action: AdminCompaniesAction): AdminCompanyAppState {
-    // const newState = new CatsAppState();
-    // newState.cats = currentState.cats;
 
     const newState = { ...currentState } //Spread Operator
     switch (action.type) {

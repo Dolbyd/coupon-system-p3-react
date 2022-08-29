@@ -46,8 +46,7 @@ export function CouponDeletedAction(id: number): CompaniesAction {
 // Step 5 - Reducer function perform the required action
 export function companyReducer(currentState: CompanyAppState = new CompanyAppState(),
     action: CompaniesAction): CompanyAppState {
-    // const newState = new CatsAppState();
-    // newState.cats = currentState.cats;
+
 
     const newState = { ...currentState } //Spread Operator
     switch (action.type) {
